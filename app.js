@@ -9,10 +9,11 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
-
+var { check,validationResult} = require('express-validator');
+var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
-//var userRoutes = require('./routes/user');
+var userRoutes = require('./routes/user');
  
 var app = express();
 
@@ -28,13 +29,25 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
+app.use(session({
+    secret: 'mysupersecret', 
+    resave: false, 
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 180 * 60 * 1000}
+}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/user',userRoutes);
+app.use(function(req, res, next){
+    res.locals.login = req.isAuthenticated();
+    res.locals.session = req.session;
+    next();
+});
+
+app.use('/user',userRoutes);
 app.use('/', routes);
 
 /// catch 404 and forwarding to error handler

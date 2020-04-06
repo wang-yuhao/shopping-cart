@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,26 +7,70 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" > <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-shopping-cart"></i>
-            Shopping Cart</a>
+      <li>
+        <a href="#">
+          <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            Shopping Cart
+          <span calss="badge">{{session.cart.totalQty}}</span>
+        </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user"></i>
              User Management
+          <span class="caret"></span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">User Account</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+        <div class="dropdown-menu">
+          {{# if login}}
+              <a href="/user/profile">Profile</a>    
+              <div class="dropdown-divider"></div>
+              <a href="/user/logout">Log Out</a>    
+          {{else}}
+              <a href="/user/signin">Sign In</a>    
+              <div class="dropdown-divider"></div>
+              <a href="/user/signup">Sign Up</a>    
+          {{/if}}
         </div>
       </li>
     </ul>
   </div>
 </nav>
+
+<!--
+<nav class="vbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"> Home </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="navbar-nav navbar-right">
+        <li><i class="fas fa-shopping-cart" aria-hidden="true"></i>
+              Shopping Cart
+              <span calss="badge">{{session.cart.totalQty}}</span>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i>
+              User Management
+            <span class="caret"></span>
+          </a>
+          <i class="dropdown-menu">
+            {{# if login}}
+              <a href="/user/profile">Profile</a>    
+              <div class="dropdown-divider"></div>
+              <a href="/user/logout">Log Out</a>    
+            {{else}}
+              <a href="/user/signin">Sign In</a>    
+              <div class="dropdown-divider"></div>
+              <a href="/user/signup">Sign Up</a>    
+            {{/if}}
+          </i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>-->

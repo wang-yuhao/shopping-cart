@@ -10,3 +10,18 @@
     font-weight: bold;
     font-size: 16px;
 }
+
+.mainText{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.img{
+    max-width: 100%;
+    margin: auto;
+}
+
+.col-sm-6{
+    max-width: 50%;
+    
+}

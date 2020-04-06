@@ -1,0 +1,25 @@
+.thumbnail img{
+    max-height: 150px;
+}
+
+.thumbnail .description{
+    color: #7f7f7f;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.mainText{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.img{
+    max-width: 100%;
+}
+
+.col-sm-6{
+    max-width: 50%
+}
