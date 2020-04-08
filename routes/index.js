@@ -16,6 +16,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* GET home page. */
+router.get('/shop/home', function(req, res, next) {
+
+/*adjust the data sequence to fit the mobil interface by change productChunks to docs */
+     res.render('shop/home');
+});
+
 router.get('/add-to-cart/:id', function(req, res, next){
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
