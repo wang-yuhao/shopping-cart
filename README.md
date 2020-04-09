@@ -11,6 +11,7 @@ shopping cart
 + ~~add user information into mongodb~~
 + ~~add router protection~~
 + ~~add shopping cart~~
++ ~~set up server in virutal machine~~
 + connect domain to server
 + add three level pages: product details
 + add products database
