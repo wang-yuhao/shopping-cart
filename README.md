@@ -20,6 +20,8 @@ shopping cart
 + support Wechat, Taobao and google account Login
 + add Wechatpay and Alipay Link
 
-## Test Link(Sometimes it may not open during development):
-[www.germanfamily.eu:3000/shop/home](www.germanfamily.eu:3000/shop/home)
+## [Test Link:](http://www.germanfamily.eu:3000/shop/home) 
+
+Sometimes it may not open during development.
+
 
