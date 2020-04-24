@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/shopping', {useNewUrlParser: true, u
 require('./config/passport');
 
 // view engine setup
-app.engine('.hbs',expressHbs({extname: '.hbs', defaultLayout: 'layout'}));
+app.engine('.hbs',expressHbs({extname: '.hbs', defaultLayout: 'layout', helpers:{ json: (context) => JSON.stringify(context)}}));
 app.set('view engine', '.hbs');
 
 app.use(favicon());

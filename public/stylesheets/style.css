@@ -17,16 +17,50 @@
 }
 
 .img{
-    max-width: 100%;
-    margin: auto;
+  margin-top: 50%;
+  max-width: 100%;
 }
 
-.col-sm-6{
+.def-col-sm-6{
     max-width: 50%;
-    
+    text-align: center; 
 }
 
 .content{
     color: white;
     text-align: center;
 }
+
+/* Centered text */
+.indicator {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 8vw;
+}
+
+.indicator-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* tab bar */
+.tab-bar{
+  position: relative;
+  text-align: right;
+  color: white;
+  font-size: 5vw;
+  background-color: #0000ae;
+}
+
+/* product div */
+.product-div{
+  position: relative;
+}
+
+/* new divider
+new{
+  border: 4px solid black;
+} 
