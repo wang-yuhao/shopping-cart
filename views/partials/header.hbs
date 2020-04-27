@@ -16,27 +16,34 @@
       <li>
         <a href="/shopping-cart/">
           <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            Shopping Cart 
-          <span calss="badge badge-success">{{session.cart.totalQty}}</span>
+            购物车 
+          <span calss="badge badge-success">{{session.cart.totalqty}}</span>
         </a>
       </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>
-             User Management
-          <span class="caret"></span>
-        </a>
-        <div class="dropdown-menu">
+      <li>
           {{# if login}}
-              <a href="/user/profile">Profile</a>    
-              <div class="dropdown-divider"></div>
-              <a href="/user/logout">Log Out</a>    
+              <a  href="/user/profile" aria-hidden="true">
+                  <i class="fas fa-file-invoice"></i>
+                  订单
+              </a>   
+      </li> 
+      <li>
+              <a  href="/user/logout" aria-hidden="true">
+                  <i class="fas fa-sign-out-alt"></i>
+                  退出
+              </a>    
           {{else}}
-              <a href="/user/signin">Sign In</a>    
-              <div class="dropdown-divider"></div>
-              <a href="/user/signup">Sign Up</a>    
+              <a  href="/user/signin" aria-hidden="true">
+                 <i class="fas fa-sign-in-alt"></i>
+                 登录
+              </a>    
+      </li> 
+      <li>
+              <a href="/user/signup" aria-hidden="true">
+                  <i class="fas fa-user-plus"></i>
+                  注册
+              </a>    
           {{/if}}
-        </div>
       </li>
     </ul>
   </div>

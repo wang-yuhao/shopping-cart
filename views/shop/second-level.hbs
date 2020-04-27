@@ -64,7 +64,7 @@ function groupProducts(product){
         div_pro.appendChild(div_pro_col);
  
         var div_pro_col_link = document.createElement("a");
-        div_pro_col_link.href = "/add-to-cart/" + product._id;
+        div_pro_col_link.href = "/product/" + product._id;
         var div_pro_col_img = document.createElement("img");
         div_pro_col_img.setAttribute("class","img w-50");
         div_pro_col_img.src = product.imagePath;
@@ -77,14 +77,14 @@ function groupProducts(product){
         div_pro_col2_body.setAttribute("class","card-body");
         var div_pro_col2_link = document.createElement("a");
         div_pro_col2_link.setAttribute("class","text-right")
-        div_pro_col2_link.href = "/add-to-cart/" + product._id;
+        div_pro_col2_link.href = "/product/" + product._id;
         var pro_title = document.createElement("p");
         pro_title.setAttribute("class","card-title text-dark");
         pro_title.innerHTML = product.title;
-        pro_title.href = "/add-to-cart/" + product._id;
+        pro_title.href = "/product/" + product._id;
         var pro_price = document.createElement("p");
-        pro_price.setAttribute("class","card-text text-dark");
-        pro_price.innerHTML = product.price;
+        pro_price.setAttribute("class","card-text font-weight-bold");
+        pro_price.innerHTML = "¥ " + product.price;
         
         // create a sub row to put two button
         var pro_subrow = document.createElement("div");
@@ -162,7 +162,7 @@ function groupProducts(product){
         div_pro.appendChild(div_pro_col);
  
         var div_pro_col_link = document.createElement("a");
-        div_pro_col_link.href = "/add-to-cart/" + product._id;
+        div_pro_col_link.href = "/product/" + product._id;
         var div_pro_col_img = document.createElement("img");
         div_pro_col_img.setAttribute("class","img w-50");
         div_pro_col_img.src = product.imagePath;
@@ -174,15 +174,15 @@ function groupProducts(product){
         var div_pro_col2_body = document.createElement("div");
         div_pro_col2_body.setAttribute("class","card-body");
         var div_pro_col2_link = document.createElement("a");
-        div_pro_col2_link.href = "/add-to-cart/" + product._id;
+        div_pro_col2_link.href = "/product/" + product._id;
         div_pro_col2_link.setAttribute("class","text-right")
         var pro_title = document.createElement("p");
         pro_title.setAttribute("class","card-title text-dark");
         pro_title.innerHTML = product.title;
-        pro_title.href = "/add-to-cart/" + product._id;
+        pro_title.href = "/product/" + product._id;
         var pro_price = document.createElement("p");
-        pro_price.setAttribute("class","card-text text-dark");
-        pro_price.innerHTML = product.price;
+        pro_price.setAttribute("class","card-text font-weight-bold");
+        pro_price.innerHTML = "¥ " + product.price;
         
         // create a sub row to put two button
         var pro_subrow = document.createElement("div");
@@ -222,43 +222,41 @@ function groupProducts(product){
 if(category == "babycare"){
     document.getElementById("category-image").src = "/images/second-level-directory/babycare/babycare.jpg";
     document.getElementById("category-chinese").innerHTML = "婴儿用品";
-    document.getElementById("category-english").innerHTML = "Babycare";
+    document.getElementById("category-english").innerHTML = "BABYCARE";
 
     products.forEach(groupProducts);}
 
 else if(category == "beauty"){
     document.getElementById("category-image").src = "/images/second-level-directory/beauty/beauty.jpg";
     document.getElementById("category-chinese").innerHTML = "化妆品";
-    document.getElementById("category-english").innerHTML = "Beauty";
+    document.getElementById("category-english").innerHTML = "BEAUTY";
 
     products.forEach(groupProducts);}
 
-else if(category == "kitchenware"){
-    document.getElementById("category-image").src = "/images/second-level-directory/beauty/beauty.jpg";
-    document.getElementById("category-chinese").innerHTML = "化妆品";
-    document.getElementById("category-english").innerHTML = "Beauty";
+else if(category == "haushaltswaren"){
+    document.getElementById("category-image").src = "/images/second-level-directory/haushaltswaren/haushaltswaren.jpg";
+    document.getElementById("category-chinese").innerHTML = "厨 具";
+    document.getElementById("category-english").innerHTML = "HAUSHALTSWAREN";
 
     products.forEach(groupProducts);}
 
 else if(category == "nahrungsergaenzungsmittel"){
-    document.getElementById("category-image").src = "/images/second-level-directory/beauty/beauty.jpg";
-    document.getElementById("category-chinese").innerHTML = "化妆品";
-    document.getElementById("category-english").innerHTML = "Beauty";
+    document.getElementById("category-image").src = "/images/second-level-directory/nahrungsergaenzungsmittel/nahrungsergaenzungsmittel.jpg";
+    document.getElementById("category-chinese").innerHTML = "保健品";
+    document.getElementById("category-english").innerHTML = "NAHRUNGSERGAENZUNGSMITTEL";
 
     products.forEach(groupProducts);}
 
-else if(category == "fashion"){
-    document.getElementById("category-image").src = "/images/second-level-directory/beauty/beauty.jpg";
-    document.getElementById("category-chinese").innerHTML = "化妆品";
-    document.getElementById("category-english").innerHTML = "Beauty";
-
-    products.forEach(groupProducts);}
 else if(category == "wein"){
-    document.getElementById("category-image").src = "/images/second-level-directory/beauty/beauty.jpg";
-    document.getElementById("category-chinese").innerHTML = "化妆品";
-    document.getElementById("category-english").innerHTML = "Beauty";
-    document.getElementById("group-text").innerHTML = " 香水 Perfum ";
-    document.getElementById("group-image-1").src = "/images/second-level-directory/beauty/parfum/parfum.jpg";
-    document.getElementById("group-image-2").src = "/images/second-level-directory/babycare/babycream/babyhautcream.jpg";
-    document.getElementById("group-image-3").src = "/images/second-level-directory/babycare/babynahrung/babynahrung.jpg";}
+    document.getElementById("category-image").src = "/images/second-level-directory/wein/wein.jpg";
+    document.getElementById("category-chinese").innerHTML = "饮  食";
+    document.getElementById("category-english").innerHTML = "GENUSS";
+
+    products.forEach(groupProducts);}
+else if(category == "fashion"){
+    document.getElementById("category-image").src = "/images/second-level-directory/fashion/fashion.jpg";
+    document.getElementById("category-chinese").innerHTML = "传统服装";
+    document.getElementById("category-english").innerHTML = "FASHION";
+    products.forEach(groupProducts);}
+
 </script>

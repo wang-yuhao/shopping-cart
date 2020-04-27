@@ -1,65 +1,91 @@
 <div class="container">
 	<div class="row">
 	    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-		<h1>Checkout</h1>
-		<h4>Your Total: ${{total}}</h4>
+		<div class="alert alert-primary" role="alert">
+		  请完成订单信息
+		</div>
 		<div id="charge-error" class="alert alert-danger d-none">
 		</div>
 		<form action="/checkout" method="post" id="checkout-form">
 		    <div class="row">
 			<div class="col-sm-12">
 			    <div class="form-group">
-				<label for="name">Name</label>
+				<label for="name">用户名</label>
 				<input type="text" id="name" class="form-control" required name="name">
 			    </div>
 			</div>
 			<div class="col-sm-12">
 			    <div class="form-group">
-				<label for="address">Address</label>
+				<label for="address">收货地址</label>
 				<input type="text" id="address" class="form-control" required name="address">
 			    </div>
 			</div>
 			<hr>
 			<div class="col-sm-12">
 			    <div class="form-group">
-				<label for="card-name">Card Holder Name</label>
+				<label for="card-name">手机号</label>
 				<input type="text" id="card-name" class="form-control" required>
 			    </div>
 			</div>
 			<div class="col-sm-12">
 			    <div class="form-group">
-				<label for="card-number">Credit Card Number</label>
-				<input type="text" id="card-number" class="form-control" required>
-			    </div>
-			</div>
-			<div class="col-sm-12">
-			    <div class="row">
-				<div class="col-sm-6">
-				    <div class="form-group">
-					<label for="card-expiry-month">Expiration Month</label>
-					<input type="text" id="card-expiry-month" class="form-control" required>
-				    </div>
-				</div>
-				<div class="col-sm-6">
-				    <div class="form-group">
-					<label for="card-expiry-year">Expiration Year</label>
-					<input type="text" id="card-expiry-year" class="form-control" required>
-				    </div>
-				</div>
-			    </div>
-			</div>
-			<div class="col-sm-12">
-			    <div class="form-group">
-				<label for="card-cvc">CVC</label>
-				<input type="text" id="card-cvc" class="form-control" required>
+				<label for="card-number">订单号</label>
+                                <p>{{paymentId}}</p>
+                                <input type="hidden" id="paymentId" name="paymentId" value="{{paymentId}}">
 			    </div>
 			</div>
 		    </div>
-		    <button type="submit" class="btn btn-success">Buy now</button>
+                    <h5>支付金额:   ¥{{total}}</h4>
+		    <div class="dropdown show">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">微信</a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a id="dropdown-item" class="dropdown-item" >支付宝</a>
+                        </div>
+                    </div> 
+                    <img id="payment-img" src="/images/wechatpay.png" class="w-100">
+                    <div class="alert alert-primary" role="alert">
+                        请扫描以上二维码，支付{{total}}元后，点击“下单”。
+                    </div>
+                    <a href="/">
+		        <button type="button" class="btn btn-secondary">取消</button>
+                    </a>
+		    <button type="submit" class="btn btn-primary">下单</button>
 		</form>
 	    </div>
 	</div>
 </div>
 
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="javascripts/checkout.js"></script>
+<script>
+    document.getElementById("dropdown-item").onclick = function(){changeItem()};
+
+    function changeItem(){
+        console.log("test");
+        var active = document.getElementById("dropdownMenuLink");
+        var dropdown = document.getElementById("dropdown-item");
+        var active_item = (active.innerText || active.textContent);
+        var dropdown_item = (dropdown.innerText || dropdown.textContent);
+        
+        console.log("test1");
+        var item = active_item;
+        active_item = dropdown_item;
+        dropdown_item = item;
+        
+        active.innerText = active_item;
+        dropdown.innerText = dropdown_item;
+        
+        paymentImg = document.getElementById("payment-img");
+        var img_src_wechat = "/images/wechatpay.png";
+        var img_src_ali = "/images/alipay.png";
+        if(active_item == "微信"){
+            paymentImg.src = img_src_wechat;
+        }else{
+            paymentImg.src = img_src_ali;
+        }
+    }
+
+</script>
+
+
+<!-- <script type="text/javascript" src="https://js.stripe.com/v2/"></script> -->
+<!-- <script type="text/javascript" src="javascripts/checkout.js"></script> -->

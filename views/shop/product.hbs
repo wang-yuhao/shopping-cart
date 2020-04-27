@@ -9,13 +9,13 @@
             <div class="col-12 text-white text-right font-weight-bold">
                 <p class="my-2">{{product.title}}</p>
                 <hr color="white">
-                <p>${{product.price}}</p>
+                <p><strong>¥ {{product.price}}</strong></p>
             </div>
         </div>
         <div class="row justify-content-between mt-2"> 
             <a class="btn btn-info col-5" href="/add-to-cart/{{product._id}}" role="button">添加</a>
             <span class="fab fa-weixin" style="color: green;"></span>
-            <button class="btn btn-success col-5">购买</button>
+            <a class="btn btn-success col-5" href="/checkout">购买</a>
         </div> 
         <div class="row my-2 text-white" style="background-color:#44c7f6">
             <div class="col-12 py-2 text-left">

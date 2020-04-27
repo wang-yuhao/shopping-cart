@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 var Cart = require('../models/cart');
+var Order = require('../models/order');
+var { uuid } = require('uuidv4');
 var category = "";
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -49,12 +51,36 @@ router.get('/shopping-cart', function(req, res, next){
     res.render('shop/shopping-cart',{products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 
-router.get('/checkout',function(req, res, next){
+router.get('/checkout',isLoggedIn, function(req, res, next){
     if (!req.session.cart){
         return res.redirect('/shopping-cart');
     }
     var cart = new Cart(req.session.cart);
-    res.render('shop/checkout', {total: cart.totalPrice});
+    var paymentId = uuid();    
+    res.render('shop/checkout', {total: cart.totalPrice, paymentId: paymentId});
+});
+
+router.post('/checkout', isLoggedIn, function(req, res, next){
+    console.log("test1");
+    if(!req.session.cart){
+        return  res.redirect('/shopping-cart');
+    }
+    var cart = new Cart(req.session.cart);
+    var timestamp = new Date();
+    var order = new Order({
+        user: req.user,
+        cart: cart,
+        address: req.body.address,
+        name: req.body.name,
+        paymentId: req.body.paymentId,
+        timestamp: timestamp
+    });
+    console.log(order);
+    order.save(function(err){
+        req.flash('success', 'Successfully bought product!');
+        req.session.cart = null;
+        res.redirect('/');
+    });
 });
 
 router.get('/product/:id', function(req, res, next){
@@ -69,3 +95,11 @@ router.get('/product/:id', function(req, res, next){
 
 module.exports = router;
 
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    console.log("test");
+    req.session.oldUrl = req.url;
+    res.redirect('/user/signin');
+}
