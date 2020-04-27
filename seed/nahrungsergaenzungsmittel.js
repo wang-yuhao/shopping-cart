@@ -108,7 +108,7 @@ var products = [
     new Product({
         category: 'nahrungsergaenzungsmittel',
         group: '矿物质 Mineralien',
-        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/矿物质 Mineralien/32003.jpg',
+        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/矿物质 Mineralien/41006.jpg',
         title:'女士矿物质补充片 30片，44.1克 2盒装',
         description:'使用注意事项 每天服用1片，并加足量的液体和吞咽的食物。 确切的产品名称： 膳食补充剂 含有矿物质和维生素的片剂 成分：碳酸钙，氧化镁，异麦芽酮糖醇，微晶纤维素和聚乙烯吡咯烷酮，L-抗坏血酸，羟丙基甲基纤维素和羟丙基纤维素的包覆剂，分离剂脂肪酸，脂肪酸镁盐，滑石粉和二氧化硅，改性淀粉，富马酸铁，硫酸锌，染料氧化铁和氢氧化铁，椰子油，季戊四酰单谷氨酸碘酸钾，胆钙化固醇 请注意有关过敏原的说明。 过敏原 不含标签要求的致敏成分',
         price: '119'
