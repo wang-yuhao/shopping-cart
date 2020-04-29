@@ -7,44 +7,40 @@
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" > <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <ul class="navbar-nav navbar-right">
-      <li>
+    <ul class="navbar-nav navbar-right text-secondary">
+      <li class="row m-1">
         <a href="/shopping-cart/">
-          <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            购物车 
-          <span calss="badge badge-success">{{session.cart.totalqty}}</span>
+           <i class="col-2 fas fa-shopping-cart text-secondary" aria-hidden="true"></i>
+           <font class="col-4 text-secondary"> 购物车</font> 
+           <span class="col-2 badge badge-success badge-pill">{{session.cart.totalQty}}</span>
         </a>
       </li>
-      <li>
+      <li class="row m-1">
           {{# if login}}
               <a  href="/user/profile" aria-hidden="true">
-                  <i class="fas fa-file-invoice"></i>
-                  订单
+                  <i class="col-2 fas fa-file-invoice text-secondary"></i>
+                  <font class="col-4 text-secondary">订单</font>
               </a>   
       </li> 
-      <li>
+      <li class="row m-1">
               <a  href="/user/logout" aria-hidden="true">
-                  <i class="fas fa-sign-out-alt"></i>
-                  退出
+                  <i class="col-2 fas fa-sign-out-alt text-secondary"></i>
+                  <font class="col-4 text-secondary">退出</font>
               </a>    
           {{else}}
               <a  href="/user/signin" aria-hidden="true">
-                 <i class="fas fa-sign-in-alt"></i>
-                 登录
+                 <i class="col-2 fas fa-sign-in-alt text-secondary"></i>
+                 <font class="col-4 text-secondary">登录</font>
               </a>    
       </li> 
-      <li>
+      <li class="row m-1">
               <a href="/user/signup" aria-hidden="true">
-                  <i class="fas fa-user-plus"></i>
-                  注册
+                  <i class="col-2 fas fa-user-plus text-secondary"></i>
+                  <font class="col-4 text-secondary">注册</font>
               </a>    
           {{/if}}
       </li>
     </ul>
   </div>
 </nav>
+

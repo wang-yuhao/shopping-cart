@@ -4,9 +4,9 @@
                     <h3 class="text-center text-primary">订单</h3>
                 </div>
                 {{# each orders}}
-			<div class="card">
-				  <div class="card-header">
-				    订单号: {{this.paymentId}}
+			<div class="card bg-primary text-primary">
+				  <div class="card-header text-white">
+				    订单号: <t style="font-size:70%">{{this.paymentId}}</t>
 				  </div>
 				  <ul class="list-group list-group-flush">
                                       {{# each this.items }}
@@ -16,7 +16,14 @@
                                           </li>
                                       {{/each}}
 				  </ul>
-                                  <div class="card-header"><strong>总计: {{this.cart.totalPrice}} 元</strong></div>
+                                  <div class="card-header row text-white">
+                                      <div class="col">
+                                          <strong>总计: {{this.cart.totalPrice}} 元</strong>
+                                      </div>
+                                      <div class="col bg-white text-center text-warning">
+                                          <t> {{this.orderStatus}}</t>
+                                      </div>
+                                  </div>
 			</div>
                         <hr class="dashed">
                  {{/each}}

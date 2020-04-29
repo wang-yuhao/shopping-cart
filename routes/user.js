@@ -9,6 +9,21 @@ var csrfProtection  = csrf();
 
 router.use(csrfProtection);
 
+router.get('/admin', isLoggedIn, function(req, res, next){
+    Order.find({}, function(err, orders){
+        if(err){
+            return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function(order){
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        });
+        res.render('user/admin', {orders: orders});
+    });
+});
+
+
 router.get('/profile', isLoggedIn, function(req, res, next){
     Order.find({user: req.user}, function(err, orders){
         if(err){
@@ -39,7 +54,8 @@ router.get('/signup', function(req, res, next){
 
 router.post('/signup', [
   // email must be an email
-  check('email').notEmpty().isEmail().withMessage('Invalid Email'),
+  //check('email').notEmpty().isEmail().withMessage('Invalid Email'),
+  //check('username').isLength({ min: 5 }),
   // password must be at least 5 chars long
   check('password').notEmpty().isLength({ min: 5 })
 ],passport.authenticate('local.signup', {
@@ -55,8 +71,6 @@ router.post('/signup', [
     }
 });
 
-
-
 router.get('/signupreplace', function(req, res, next){
     res.render('user/signupreplace');
 });
@@ -68,8 +82,9 @@ router.get('/signin', function(req, res, next){
 
 router.post('/signin', [
   // email must be an email
-  check('email').isEmail().withMessage('Invalid Email'),
+  // check('email').isEmail().withMessage('Invalid Email'),
   // password must be at least 5 chars long
+  //check('username').isLength({ min: 5 }),
   check('password').isLength({ min: 5 })
 ],passport.authenticate('local.signin', {
     failureRedirect: '/user/signin',
@@ -79,7 +94,10 @@ router.post('/signin', [
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
         res.redirect(oldUrl);
-    }else{
+    } else if(req.body.username  == "admin"){
+        res.redirect('/user/admin');
+    } 
+    else{
         res.redirect('/user/profile');
     }
 });
