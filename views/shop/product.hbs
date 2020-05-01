@@ -1,0 +1,41 @@
+
+<form action="/search" method="post" id="search-form"  class="input-group">
+  <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="搜索">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+  </div>
+</form>
+
+<div class=container>
+    <div class="mx-2">
+    {{# if product}}
+        <div class="row my-2">
+            <img src="{{product.imagePath}}" class="rounded mx-auto d-block">
+        </div>
+
+        <div class="row" style="background-color:#44c7f6">
+            <div class="col-12 text-white text-right font-weight-bold">
+                <p class="my-2">{{product.title}}</p>
+                <hr color="white">
+                <p><strong>¥ {{product.price}}</strong></p>
+            </div>
+        </div>
+        <div class="row justify-content-between mt-2"> 
+            <a class="btn btn-info col-5" href="/add-to-cart/{{product._id}}" role="button">添加</a>
+            <span class="fab fa-weixin" style="color: green;"></span>
+            <a class="btn btn-success col-5" href="/checkout">购买</a>
+        </div> 
+        <div class="row my-2 text-white" style="background-color:#44c7f6">
+            <div class="col-12 py-2 text-left">
+                <p>产品说明:</p>
+                <p>{{product.description}}</p>
+            </div>
+        </div>
+    {{/if}}
+    </div>
+</div>
+<script>
+product={{{json product}}};
+console.log(product);
+
+</script>

@@ -1,0 +1,62 @@
+
+<form action="/search" method="post" id="search-form"  class="input-group">
+  <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="搜索">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+  </div>
+</form>
+
+
+{{# if products}}
+	<div class="row">
+	    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h5 class="text-center font-weight-bold py-2">购物车</h5>
+		<ul class="list-group py-3 ">
+		    {{# each products }}
+			    <li class="row list-group-item d-flex justify-content-between align-items-center">
+			      <div class="col-9">
+                                   {{this.item.title}}
+ 				   <span class="label label-success font-weight-bold float-right">¥ {{ this.price }}</span>
+                              </div>
+			      <t class="col-3 text-center">
+                                  <div class="w-100 text-center">
+                                      <a href="/reduce/{{this.item._id}}"><font>-</font></a> 
+                                      <span class="badge badge-primary badge-pill">{{this.qty}}</span> 
+                                      <a href="/increase/{{this.item._id}}"><font>+</font></a>
+                                  </div>
+                                  <div class="w-100">
+                                      <a  href="/remove/{{this.item._id}}">
+                                          <badge class="badge badge-secondary">delete</button>
+                                      </a>
+                                  </div>
+                              </t>
+			    </li>
+		    {{/each}}
+		</ul>
+	    </div>
+	</div>
+
+	<div class="row text-right">
+	    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+		<strong> 总计: ¥ {{totalPrice}}</strong>
+	    </div>
+	</div>
+	<hr>
+	<div class="row">
+	    <div class="col">
+		<a href="/return" type="button" class="btn btn-secondary w-100"> 返回 </a>
+	    </div>
+	    <div class="col">
+		<a href="/checkout" type="button" class="btn btn-success w-100"> 下单 </a>
+	    </div>
+	</div>
+{{ else }}
+	<div class="row">
+	    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+		<h3 class="text-center text-warning font-weight-bold py-2" > 购物车里什么都没有!</h2>
+	    </div>
+	</div>
+{{/if}}
+
+<script>
+</script>

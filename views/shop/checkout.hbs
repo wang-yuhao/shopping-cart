@@ -1,0 +1,95 @@
+<div class="container">
+	<div class="row">
+	    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+		<div class="alert text-center text-white bg-primary"  role="alert">
+		  请完成订单信息
+		</div>
+		<div id="charge-error" class="alert alert-danger d-none">
+		</div>
+		<form action="/checkout" method="post" id="checkout-form">
+		    <div class="row text-primary">
+			<div class="col-sm-12">
+			    <div class="form-group">
+				<label for="name">用户名</label>
+				<input type="text" id="name" class="form-control" required name="name">
+			    </div>
+			</div>
+			<div class="col-sm-12">
+			    <div class="form-group">
+				<label for="address">收货地址</label>
+				<input type="text" id="address" class="form-control" required name="address">
+			    </div>
+			</div>
+			<hr>
+			<div class="col-sm-12">
+			    <div class="form-group">
+				<label for="card-name">手机号</label>
+				<input type="text" id="card-name" class="form-control" required>
+			    </div>
+			</div>
+			<div class="col-sm-12">
+			    <div class="form-group">
+				<label for="card-number">订单号</label>
+                                <p class="text-secondary" style="font-size: 90%">{{paymentId}}</p>
+                                <input type="hidden" id="paymentId" name="paymentId" value="{{paymentId}}">
+                                <input type="hidden" id="orderStatus" name="orderStatus" value="等待确认收款">
+			    </div>
+			</div>
+		    </div>
+		    <div class="dropdown show">
+                        <a class="btn btn-primary dropdown-toggle w-100" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">微信</a>
+
+                        <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink">
+                            <a id="dropdown-item" class="dropdown-item" >支付宝</a>
+                        </div>
+                    </div> 
+                    <img id="payment-img" src="/images/wechatpay.png" class="w-100">
+                    <div class="alert alert-primary" role="alert" style="font-size: 60%">
+                        请扫描以上二维码，支付<font size="5" color="red">{{total}}</font>元后，点击“下单”。
+                    </div>
+                    <div class="row">
+                        <a href="/" class="col">
+		            <button type="button" class="btn btn-secondary w-100">取消</button>
+                        </a>
+                        <a href="/" class="col">
+		            <button type="submit" class="btn btn-primary w-100">下单</button>
+                        </a>
+                    </div>
+		</form>
+	    </div>
+	</div>
+</div>
+
+<script>
+    document.getElementById("dropdown-item").onclick = function(){changeItem()};
+
+    function changeItem(){
+        console.log("test");
+        var active = document.getElementById("dropdownMenuLink");
+        var dropdown = document.getElementById("dropdown-item");
+        var active_item = (active.innerText || active.textContent);
+        var dropdown_item = (dropdown.innerText || dropdown.textContent);
+        
+        console.log("test1");
+        var item = active_item;
+        active_item = dropdown_item;
+        dropdown_item = item;
+        
+        active.innerText = active_item;
+        dropdown.innerText = dropdown_item;
+        
+        paymentImg = document.getElementById("payment-img");
+        var img_src_wechat = "/images/wechatpay.png";
+        var img_src_ali = "/images/alipay.png";
+        if(active_item == "微信"){
+            paymentImg.src = img_src_wechat;
+        }else{
+            paymentImg.src = img_src_ali;
+        }
+    }
+
+</script>
+
+
+<!-- <script type="text/javascript" src="https://js.stripe.com/v2/"></script> -->
+<!-- <script type="text/javascript" src="javascripts/checkout.js"></script> -->

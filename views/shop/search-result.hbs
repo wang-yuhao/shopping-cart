@@ -1,0 +1,190 @@
+
+
+<form action="/search" method="post" id="search-form"  class="input-group">
+  <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="搜索">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+  </div>
+</form>
+<div class="container">
+  <div id="products-div" class="mx-2">
+  </div>
+</div>
+
+<script>
+var category = "{{category}}";
+var products = {{{json products}}};
+var searchItem = "{{searchItem}}";
+var groupName = "a";
+function groupProducts(product){
+    // compare the last  group name with this product group name 
+    if(product.group == groupName){ 
+        
+        var div = document.getElementById("products-div");
+
+        //create a new product card div
+        var div_pro = document.createElement("div");
+        div_pro.setAttribute("class","row");
+        div.appendChild(div_pro);
+        var div_pro_col = document.createElement("div");
+        div_pro_col.setAttribute("class","def-col-sm-6");
+        div_pro.appendChild(div_pro_col);
+ 
+        var div_pro_col_link = document.createElement("a");
+        div_pro_col_link.href = "/product/" + product._id;
+        var div_pro_col_img = document.createElement("img");
+        div_pro_col_img.setAttribute("class","img w-50");
+        div_pro_col_img.src = product.imagePath;
+ 
+        div_pro_col_link.appendChild(div_pro_col_img);
+        div_pro_col.appendChild(div_pro_col_link);
+        var div_pro_col2 = document.createElement("div");
+        div_pro_col2.setAttribute("class","def-col-sm-6");
+        var div_pro_col2_body = document.createElement("div");
+        div_pro_col2_body.setAttribute("class","card-body");
+        var div_pro_col2_link = document.createElement("a");
+        div_pro_col2_link.setAttribute("class","text-right")
+        div_pro_col2_link.href = "/product/" + product._id;
+        var pro_title = document.createElement("p");
+        pro_title.setAttribute("class","card-title text-dark");
+        pro_title.innerHTML = product.title;
+        pro_title.href = "/product/" + product._id;
+        var pro_price = document.createElement("p");
+        pro_price.setAttribute("class","card-text font-weight-bold");
+        pro_price.innerHTML = "¥ " + product.price;
+        
+        // create a sub row to put two button
+        var pro_subrow = document.createElement("div");
+        pro_subrow.setAttribute("class","row justify-content-between");
+        var pro_button = document.createElement("a");
+        pro_button.setAttribute("class","btn btn-success");
+        pro_button.setAttribute("role","button");
+        pro_button.innerHTML = "添加";
+        pro_button.href = "/search-add-to-cart/" + product._id + "/" + searchItem;
+        var pro_button2 = document.createElement("a");
+        pro_button2.setAttribute("class","btn btn-success");
+        pro_button2.setAttribute("role","button");
+        pro_button2.innerHTML = "购买";
+        pro_button2.href = "/product/" + product._id;
+        pro_subrow.appendChild(pro_button);
+        pro_subrow.appendChild(pro_button2);
+
+
+        div_pro_col2_link.appendChild(pro_title);
+        div_pro_col2_link.appendChild(pro_price);
+        div_pro_col2_body.appendChild(div_pro_col2_link);
+        div_pro_col2_body.appendChild(pro_subrow);
+        div_pro_col2.appendChild(div_pro_col2_body);
+        div_pro.appendChild(div_pro_col2);
+        
+        // create a solid split line
+        var hr_row = document.createElement("div");
+        hr_row.setAttribute("class","row");
+        var hr_shade = document.createElement("hr");
+        hr_shade.setAttribute("color","black");
+        hr_shade.setAttribute("width","100%");
+        hr_row.appendChild(hr_shade);
+        div.appendChild(hr_row);           
+    } else{
+        // if last group name is different with this group name
+        // create a new group subtitle div
+        groupName = product.group;
+        var div = document.getElementById("products-div");
+        var div_row = document.createElement("div");
+        div_row.setAttribute("class","row mb-0 tab-bar");
+        var div_col = document.createElement("div")
+        div_col.setAttribute("class","col py-2");
+        var group_text = document.createElement("t");
+        group_text.innerText = groupName;
+        div_col.appendChild(group_text)
+        div_row.appendChild(div_col);
+        div.appendChild(div_row);
+        
+        // create a new group image div
+        var div_img = document.createElement("div");
+        div_img.setAttribute("class","row py-1 indicator");
+        div.appendChild(div_img);
+        var group_img = document.createElement("img");
+        group_img.setAttribute("class","w-100");
+        console.log(product.imagePath);
+        var product_img_path = product.imagePath;
+        
+        // group image must store in the group directory and name as "groupname".jpg
+        // split currently product image path to generate group image path
+        var group_img_path = product_img_path.split(/[/]|[.]/);
+        group_img_path = "/"+group_img_path[1]+"/"+group_img_path[2]+"/"+group_img_path[3]+"/"+group_img_path[4]+"/"+group_img_path[4]+".jpg";
+        console.log(group_img_path);
+        
+        group_img.src = group_img_path;
+        div_img.appendChild(group_img);
+        
+        var div = document.getElementById("products-div");
+
+        //create a new product card div
+        var div_pro = document.createElement("div");
+        div_pro.setAttribute("class","row");
+        div.appendChild(div_pro);
+        var div_pro_col = document.createElement("div");
+        div_pro_col.setAttribute("class","def-col-sm-6");
+        div_pro.appendChild(div_pro_col);
+ 
+        var div_pro_col_link = document.createElement("a");
+        div_pro_col_link.href = "/product/" + product._id;
+        var div_pro_col_img = document.createElement("img");
+        div_pro_col_img.setAttribute("class","img w-50");
+        div_pro_col_img.src = product.imagePath;
+ 
+        div_pro_col_link.appendChild(div_pro_col_img);
+        div_pro_col.appendChild(div_pro_col_link);
+        var div_pro_col2 = document.createElement("div");
+        div_pro_col2.setAttribute("class","def-col-sm-6");
+        var div_pro_col2_body = document.createElement("div");
+        div_pro_col2_body.setAttribute("class","card-body");
+        var div_pro_col2_link = document.createElement("a");
+        div_pro_col2_link.href = "/product/" + product._id;
+        div_pro_col2_link.setAttribute("class","text-right")
+        var pro_title = document.createElement("p");
+        pro_title.setAttribute("class","card-title text-dark");
+        pro_title.innerHTML = product.title;
+        pro_title.href = "/product/" + product._id;
+        var pro_price = document.createElement("p");
+        pro_price.setAttribute("class","card-text font-weight-bold");
+        pro_price.innerHTML = "¥ " + product.price;
+        
+        // create a sub row to put two button
+        var pro_subrow = document.createElement("div");
+        pro_subrow.setAttribute("class","row justify-content-between");
+        var pro_button = document.createElement("a");
+        pro_button.setAttribute("class","btn btn-success");
+        pro_button.setAttribute("role","button");
+        pro_button.innerHTML = "添加";
+        pro_button.href = "/search-add-to-cart/" + product._id + "/" + searchItem;
+        var pro_button2 = document.createElement("a");
+        pro_button2.setAttribute("class","btn btn-success");
+        pro_button2.setAttribute("role","button");
+        pro_button2.innerHTML = "购买";
+        pro_button2.href = "/product/" + product._id;
+        pro_subrow.appendChild(pro_button);
+        pro_subrow.appendChild(pro_button2);
+
+
+        div_pro_col2_link.appendChild(pro_title);
+        div_pro_col2_link.appendChild(pro_price);
+        div_pro_col2_body.appendChild(div_pro_col2_link);
+        div_pro_col2_body.appendChild(pro_subrow);
+        div_pro_col2.appendChild(div_pro_col2_body);
+        div_pro.appendChild(div_pro_col2);
+       
+        // create a solid split line
+        var hr_row = document.createElement("div");
+        hr_row.setAttribute("class","row");
+        var hr_shade = document.createElement("hr");
+        hr_shade.setAttribute("color","black");
+        hr_shade.setAttribute("width","100%");
+        hr_row.appendChild(hr_shade);
+        div.appendChild(hr_row);           
+    }
+}
+
+products.forEach(groupProducts);
+</script>

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/">
+        <img src="/images/germanfamily.jpg" width="50px" height="60px" class="navbar-brand" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav navbar-right text-secondary">
+      <li class="row m-1">
+        <a href="/shopping-cart/">
+           <i class="col-2 fas fa-shopping-cart text-secondary" aria-hidden="true"></i>
+           <font class="col-4 text-secondary"> 购物车</font> 
+           <span class="col-2 badge badge-success badge-pill">{{session.cart.totalQty}}</span>
+        </a>
+      </li>
+      <li class="row m-1">
+          {{# if login}}
+              <a  href="/user/profile" aria-hidden="true">
+                  <i class="col-2 fas fa-file-invoice text-secondary"></i>
+                  <font class="col-4 text-secondary">订单</font>
+              </a>   
+      </li> 
+      <li class="row m-1">
+              <a  href="/user/logout" aria-hidden="true">
+                  <i class="col-2 fas fa-sign-out-alt text-secondary"></i>
+                  <font class="col-4 text-secondary">退出</font>
+              </a>    
+          {{else}}
+              <a  href="/user/signin" aria-hidden="true">
+                 <i class="col-2 fas fa-sign-in-alt text-secondary"></i>
+                 <font class="col-4 text-secondary">登录</font>
+              </a>    
+      </li> 
+      <li class="row m-1">
+              <a href="/user/signup" aria-hidden="true">
+                  <i class="col-2 fas fa-user-plus text-secondary"></i>
+                  <font class="col-4 text-secondary">注册</font>
+              </a>    
+          {{/if}}
+      </li>
+    </ul>
+  </div>
+</nav>
+
