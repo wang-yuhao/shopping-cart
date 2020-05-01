@@ -1,7 +1,7 @@
 # shopping-cart
 shopping cart
 
-## Todo:
+## Done:
 + ~~add home page~~
 + ~~add second level pages~~
 + ~~insert Logo~~
@@ -11,12 +11,15 @@ shopping cart
 + ~~add user information into mongodb~~
 + ~~add router protection~~
 + ~~add shopping cart~~
-+ ~~set up server in virutal machine~~
++ ~~set up server in Ali Clound (HongKong)~~
 + ~~connect domain to server~~
 + ~~add three level pages: product details~~
 + ~~add products database~~
 + ~~add administrator management~~
-+ ~~add products search ~~
++ ~~add products search~~
+
+
+## Todo:
 + add user dream list, send email to admin emailbox
 + collect user visit and input data
 + analyse user data
@@ -31,7 +34,7 @@ shopping cart
 + add shipping method 
 
 
-## [Test Link:](http://www.germanfamily.eu:3000/shop/home) 
+## [Test Link:](http://www.germanfamily.eu) j Mobile devices only.
 
 Sometimes it may not open during development.
 
