@@ -12,9 +12,9 @@ shopping cart
 + ~~add router protection~~
 + ~~add shopping cart~~
 + ~~set up server in virutal machine~~
-+ connect domain to server
-+ add three level pages: product details
-+ add products database
++ ~~connect domain to server
++ ~~add three level pages: product details
++ ~~add products database
 + add user dream list, send email to admin emailbox
 + collect user visit and input data
 + analyse user data
