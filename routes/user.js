@@ -13,7 +13,7 @@ var csrfProtection  = csrf();
 router.use(csrfProtection);
 
 router.get('/admin', isLoggedIn, function(req, res, next){
-    Order.find({}, function(err, orders){
+    Order.find({}, null, {sort: {'_id': -1}}, function(err, orders){
         if(err){
             return res.write('Error!');
         }
