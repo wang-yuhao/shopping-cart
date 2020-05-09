@@ -1,5 +1,3 @@
-
-
 <form action="/search" method="post" id="search-form"  class="input-group">
   <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="搜索">
   <div class="input-group-append">
@@ -11,7 +9,7 @@
 <div class="container">
   <div id="products-div" class="mx-2">
     <div id="babycare" class="row py-1 indicator">
-        <img id="category-image" src="/images/second-level-directory/babycare/babycare.jpg" class="w-100" alt="Baby">
+        <img id="category-image" src="/images/second-level-directory/babycare/babycare.jpg" class="w-100 h-100" alt="Baby">
         <div class="indicator-text">
             <h3 id="category-chinese">  婴儿用品 </h3>
             <h3 id="category-english">  Babycare </h3>
@@ -147,7 +145,7 @@ function groupProducts(product){
         div_img.setAttribute("class","row py-1 indicator");
         div.appendChild(div_img);
         var group_img = document.createElement("img");
-        group_img.setAttribute("class","w-100");
+        group_img.setAttribute("class","w-100  h-100");
         console.log(product.imagePath);
         var product_img_path = product.imagePath;
         

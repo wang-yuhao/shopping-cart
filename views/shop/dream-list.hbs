@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+                <div class="col m-3">
+                    <h3 class="text-center text-primary">留 言 板</h3>
+                </div>
+                <div class="card mb-2">
+                    <form action="/dreamList" method="post" id="dream-list">
+                        <div class="form-group">
+                            <label class="card-header" for="name">如还有其他愿望或建议，请在这里留言</label>
+                            <input type="text" class="form-control card-body" name="name" id="name" placeholder="标题">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control card-body py-5" name="description" id="description" placeholder="详细描述">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success mb-2">确 定</button>
+                        </div>
+                    </form>
+                </div>
+	</div>
+                {{# each dreamLists}}
+		    {{# each this}}
+		      {{# each dreamList }}
+				<div class="card bg-primary text-primary mb-2">
+					  <ul class="list-group list-group-flush">
+					  <div class="card-header text-white">
+					    <t>{{../username}}</t>
+					  </div>
+					  <li class="list-group-item">
+					     标题: {{name}}
+					  </li>
+					  <li class="list-group-item">
+					     描述: {{description}}
+					  </li>
+					  </ul>
+				</div>
+		      {{/each}}
+		    {{/each}}
+                 {{/each}}
+</div>

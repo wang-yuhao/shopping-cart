@@ -8,8 +8,8 @@ mongoose.connect('mongodb://localhost:27017/shopping',{useNewUrlParser: true, us
 var beauty = [
     new Product({
         category: 'beauty',
-        group: 'parfum',
-        imagePath: '/images/second-level-directory/beauty/parfum/20001.jpg',
+        group: '香水parfum',
+        imagePath: '/images/second-level-directory/beauty/香水parfum/20001.jpg',
         title:'香奈儿 嘉柏丽尔天性香水 100ml',
         description:'香奈儿（CHANEL）香水设计师奥利维耶·波尔格（OLIVIER POLGE）热情洋溢地绽放着光彩。 由加布里埃尔·香奈儿（GABRIELLE CHANEL）启发的香水GABRIELLE CHANEL ESSENCE是一种自决的女性的香水，该香水完全表达自己的个性并从内部散发出光芒。 气味似乎在超细玻璃制成的方形瓶中漂浮得很轻。标签和扣环以强烈而富裕的金色调像香水一样展现自己。GABRIELLE CHANEL ESSENCE是充满光彩的感性，丰盈成分。 LESSENCE是一款由四朵白花制成的香水花蜜：充满异国情调的茉莉花，带有果香和光芒四射的依兰，新鲜而波光粼粼的橙花，天鹅绒般的天鹅绒和浓郁的女人味晚香玉。 晚香玉被认为是最强烈的香气和迷人的花朵。在这种香水中，晚香玉更具表现力。它们温暖而有光泽的光芒流过整个香水。',
         price: '1998'
@@ -17,8 +17,8 @@ var beauty = [
 
     new Product({
         category: 'beauty',
-        group: 'parfum',
-        imagePath: '/images/second-level-directory/beauty/parfum/20002.jpg',
+        group: '香水parfum',
+        imagePath: '/images/second-level-directory/beauty/香水parfum/20002.jpg',
         title:'香奈儿 可可小姐香水（瓶装）100ml',
         description:'自由奔放，大胆的女人的精髓。 强烈的女性化东方香气以其强烈的清新感而著称。 强烈的东方香气，以其强烈的清新感而著称。 开始时，鲜活的橙色飞溅唤醒了感官。 明亮而感性的心透露出茉莉和玫瑰的透明和弦。 在特征上，广PATCH香和香根草的简单口音凸显了该成分的优雅轮廓。',
         price: '1959'
@@ -26,8 +26,8 @@ var beauty = [
 
     new Product({
         category: 'beauty',
-        group: 'parfum',
-        imagePath: '/images/second-level-directory/beauty/parfum/20003.jpg',
+        group: '香水parfum',
+        imagePath: '/images/second-level-directory/beauty/香水parfum/20003.jpg',
         title:'香奈儿 五号之水 100ml',
         description:'N°5 L\'EAU是今天的N°5花香，活力十足的香气。现代是他的座右铭，新鲜是他的主旋律。 N°5 L\'EAU完美无瑕。 N°5 L\'EAU是新的必需品，巧妙地采用了其简约的包装。传说中的香水的轮廓在纸板上略显可见。内部，第二个外壳保护着透明的瓶子。瓶子的终极简单性突出了香水的非凡特征，并为梦想留出了空间。N°5 L’EAU比其前辈更抽象，柑橘类水果的辐射清新令人惊讶。首先是由醛类带来的柠檬，橘子和橙子的动态和谐。它的背后隐藏着花香的小面：玫瑰与精致的茉莉花和果味依兰的相互作用–从未有过的现代感。 N°5的这一标志性特征在香根草和雪松木之间营造出一种新的张力，并带有柔和的麝香味。 N°5 L’EAU自然绽放，前所未有，新鲜！',
         price: '1959'
@@ -35,8 +35,8 @@ var beauty = [
 
     new Product({
         category: 'beauty',
-        group: 'parfum',
-        imagePath: '/images/second-level-directory/beauty/parfum/20004.jpg',
+        group: '香水parfum',
+        imagePath: '/images/second-level-directory/beauty/香水parfum/20004.jpg',
         title:'香奈儿 智慧紧肤植物精萃乳霜 50ml',
         description:'香奈儿（CHANEL）的研究首次开发了一种平滑紧致的乳霜，其对皮肤友好的配方中含有高浓度的天然活性成分。 LE LIFTCRÈME由94％的天然成分组成，并且与植物紫花苜蓿浓缩物一起，含有一种新的，非常有效的活性成分，与视黄醇*一样有效。面霜有3种极富感性的质感：CRÈMEFINE，CRÈME和CRÈMERICHE可以完美地适合不同的皮肤类型。 *刺激角质形成细胞分化和增殖以及I型胶原合成的比较-体外测试。 表皮测试强度在重建皮肤上增加的比较。 抗皱和平滑效果的比较-对21个测试对象的仪器测量。',
         price: '49'
@@ -44,8 +44,8 @@ var beauty = [
 
     new Product({
         category: 'beauty',
-        group: 'parfum',
-        imagePath: '/images/second-level-directory/beauty/parfum/20005.jpg',
+        group: '香水parfum',
+        imagePath: '/images/second-level-directory/beauty/香水parfum/20005.jpg',
         title:'香奈儿 五号香水（经典）100ml',
         description:'使用PRONUTRA配方，无需调味即可生产的APTAMIL PRONUTRA儿童牛奶1+，每天都能为您的孩子在当前发育阶段所需的最佳营养供应提供支持。维生素A和C自然可以促进正常的免疫系统。维生素D和钙支持骨骼的正常生长和发育。碘对于甲状腺功能和生长很重要。随着年龄的增长降低蛋白质含量。本产品适合2岁以上儿童。',
         price: '1790'
@@ -53,8 +53,8 @@ var beauty = [
 
     new Product({
         category: 'beauty',
-        group: 'parfum',
-        imagePath: '/images/second-level-directory/beauty/parfum/20006.jpg',
+        group: '香水parfum',
+        imagePath: '/images/second-level-directory/beauty/香水parfum/20006.jpg',
         title:'香奈儿 蔚蓝男士香水 100ml',
         description:'香奈儿（CHANEL）将您的礼物摆在风头，并设计了一款特别的限量版表壳。 专门用于50毫升和100毫升的香水。 *数量有限，售完即止。 散发着芳香，木质，迷人香气的男士自由。 一瓶坚不可摧的蓝色拥有这种永恒而有力的成分。 香水散发着BLEU DE CHANEL的男性气息，带有强烈的嗅觉特征，特别令人震惊地表现出男性气质。 BLEU DE CHANEL淡香水，一种带有琥珀和麝香气息的芳香木质香精。 酸雪松香调给人一种温暖的感性，新喀里多尼亚的麝香木香和檀香带来优雅和深度。',
         price: '1649'

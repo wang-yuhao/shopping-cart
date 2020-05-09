@@ -2,12 +2,21 @@
     <a href="/">
         <img src="/images/germanfamily.jpg" width="50px" height="60px" class="navbar-brand" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a href="/" class="text-center">
+                  <i class="text-secondary fas fa-home fa-2x"></i>
+    </a>
+    <button class="navbar-toggler primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav navbar-right text-secondary">
+      <li class="row m-1">
+              <a  href="/" aria-hidden="true">
+                  <i class="col-2 text-secondary fas fa-home"></i>
+                  <font class="col-4 text-secondary">首页</font>
+              </a>    
+      </li>
       <li class="row m-1">
         <a href="/shopping-cart/">
            <i class="col-2 fas fa-shopping-cart text-secondary" aria-hidden="true"></i>
@@ -39,6 +48,18 @@
                   <font class="col-4 text-secondary">注册</font>
               </a>    
           {{/if}}
+      </li> 
+      <li class="row m-1">
+              <a  href="/dreamList/" aria-hidden="true">
+                  <i class="col-2 far fa-comment-dots text-secondary"></i>
+                  <font class="col-4 text-secondary">留言</font>
+              </a>    
+      </li> 
+      <li class="row m-1">
+              <a  href="/advice/" aria-hidden="true">
+                  <i class="col-2 fas fa-lightbulb text-secondary"></i> 
+                  <font class="col-4 text-secondary">介绍</font>
+              </a>    
       </li>
     </ul>
   </div>

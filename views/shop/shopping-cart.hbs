@@ -24,7 +24,7 @@
                                       <span class="badge badge-primary badge-pill">{{this.qty}}</span> 
                                       <a href="/increase/{{this.item._id}}"><font>+</font></a>
                                   </div>
-                                  <div class="w-100">
+                                  <div class="w-100 d-none">
                                       <a  href="/remove/{{this.item._id}}">
                                           <badge class="badge badge-secondary">delete</button>
                                       </a>
@@ -38,7 +38,7 @@
 
 	<div class="row text-right">
 	    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-		<strong> 总计: ¥ {{totalPrice}}</strong>
+		<strong> 总计: ¥ {{totalPrice}}</strong> <p class="text-danger">（总价超过1500元包邮，1500元以内需另加运费500元）</p>
 	    </div>
 	</div>
 	<hr>
