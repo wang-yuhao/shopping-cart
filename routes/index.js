@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 var Cart = require('../models/cart');
+var User = require('../models/user');
 var Order = require('../models/order');
 var { uuid } = require('uuidv4');
 var category = "";
@@ -14,6 +15,18 @@ router.get('/', function(req, res, next) {
 router.get('/return', function(req, res, next){
         res.redirect('/');
 });
+
+router.post('/admin', isLoggedIn, function(req, res, next){
+    console.log("test");
+    Order.updateOne({"paymentId": req.body.paymentId}, {$set: {"orderStatus": req.body.orderStatus}}, {multi: true}, function(err){
+        if(err){
+            return res.write('Error!');
+        }
+        res.redirect('/user/admin');
+        
+    });
+});
+
 
 /* GET second level page. */
 router.get('/second-level/:category', function(req, res, next) {
@@ -76,13 +89,64 @@ router.get('/shopping-cart', function(req, res, next){
     res.render('shop/shopping-cart',{products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 
+router.get('/dreamList', function(req, res, next){
+    console.log("test dreamList post");
+    User.find({},{dreamList: 1, username: 1}, function(err, dreamLists){
+        if(err){
+            return res.write('Error!');
+        }
+        console.log(dreamLists);
+        res.render('shop/dream-list', {dreamLists: dreamLists});
+    });
+});
+
+router.post('/dreamList', isLoggedIn, function(req, res, next){
+//    console.log("test dreamList post");
+//    console.log(req.user);
+    var userId = req.user.id;
+    var user= req.user;
+    var name= req.body.name;
+    var description= req.body.description;
+    console.log(name);
+//    var dreamPro = {"name": ${name}, "description": ${description}};
+    User.updateOne({"_id": userId},{$push: {"dreamList": {"name":name, "description": description}}},{multi:1}, function(err){
+        if(err){
+            return res.write('Error!');
+        }
+        res.redirect('/dreamList');
+    });
+});
+
+router.get('/advice', isLoggedIn, function(req, res, next){
+        res.render('shop/advice');
+});
+
+router.get('/comment', isLoggedIn, function(req, res, next){
+    Order.find({user: req.user}, function(err, orders){
+        if(err){
+            return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function(order){
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        });
+        res.render('user/advice', {orders: orders});
+    });
+});
+
+
 router.get('/checkout',isLoggedIn, function(req, res, next){
     if (!req.session.cart){
         return res.redirect('/shopping-cart');
     }
     var cart = new Cart(req.session.cart);
-    var paymentId = uuid();    
-    res.render('shop/checkout', {total: cart.totalPrice, paymentId: paymentId});
+    var paymentId = uuid();   
+    var totalPrice = cart.totalPrice;
+    if(totalPrice <= 1500){
+        totalPrice = totalPrice + 500
+    } 
+    res.render('shop/checkout', {total: totalPrice, paymentId: paymentId});
 });
 
 router.post('/checkout', isLoggedIn, function(req, res, next){

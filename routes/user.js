@@ -4,13 +4,16 @@ var csrf = require('csurf');
 var passport = require('passport');
 var Order = require('../models/order');
 var Cart = require('../models/cart');
+var Advice = require('../models/advice');
+var Dreamlist = require('../models/dreamlist');
+var User = require('../models/user');
 var { check, validationResult } = require('express-validator');
 var csrfProtection  = csrf();
 
 router.use(csrfProtection);
 
 router.get('/admin', isLoggedIn, function(req, res, next){
-    Order.find({}, function(err, orders){
+    Order.find({}, null, {sort: {'_id': -1}}, function(err, orders){
         if(err){
             return res.write('Error!');
         }
@@ -22,7 +25,6 @@ router.get('/admin', isLoggedIn, function(req, res, next){
         res.render('user/admin', {orders: orders});
     });
 });
-
 
 router.get('/profile', isLoggedIn, function(req, res, next){
     Order.find({user: req.user}, function(err, orders){
@@ -37,6 +39,7 @@ router.get('/profile', isLoggedIn, function(req, res, next){
         res.render('user/profile', {orders: orders});
     });
 });
+
 
 router.get('/logout', isLoggedIn, function(req, res, next){
     req.logout();

@@ -86,16 +86,7 @@ var products = [
         description:'镁支持肌肉和神经 镁有助于正常的肌肉功能 镁有助于正常的能量代谢 MIVOLIS镁用于肌肉和神经。 镁是最通用的矿物质之一，有助于正常的肌肉和神经功能，维持正常的骨骼和正常的能量代谢。 不能总是确保充足的镁供应，尤其是在特殊的饮食习惯或增加体育锻炼的情况下。',
         price: '369'
     }),
-    
-    new Product({
-        category: 'nahrungsergaenzungsmittel',
-        group: '矿物质 Mineralien',
-        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/矿物质 Mineralien/41004.jpg',
-        title:'Bullrich 酸碱平衡片剂 180 片，158 g 2盒装',
-        description:'BULLRICH含锌的酸碱平衡基础片剂和特殊的碱性矿物质组合有助于调节酸碱平衡。锌有助于正常的酸碱代谢。该产品是素食主义者，仅包含草药成分或源自活体动物的成分。 该产品是素食主义者，不包含任何动物成分或佐剂。 该产品不含麸质。使用注意事项 我们的现代饮食和生活方式习惯，例如单方面富含蛋白质的饮食，减少饮食以及体力消耗会导致对基本矿物质的需求增加。 BULLRICH的片剂由锌和特殊的基本矿物质制成，有助于正常的酸碱代谢。 成分 确切的产品名称： 含矿物质的膳食补充剂BULLRICH酸碱平衡 成分：碳酸氢钠，碳酸钙，碳酸镁铈，马铃薯淀粉，柠檬酸三钾，滑石粉，磷酸二氢钠，纤维素填料，葡萄糖酸锌 即食-无需准备',
-        price: '169'
-    }),
-    
+        
     new Product({
         category: 'nahrungsergaenzungsmittel',
         group: '矿物质 Mineralien',
@@ -112,7 +103,44 @@ var products = [
         title:'女士矿物质补充片 30片，44.1克 2盒装',
         description:'使用注意事项 每天服用1片，并加足量的液体和吞咽的食物。 确切的产品名称： 膳食补充剂 含有矿物质和维生素的片剂 成分：碳酸钙，氧化镁，异麦芽酮糖醇，微晶纤维素和聚乙烯吡咯烷酮，L-抗坏血酸，羟丙基甲基纤维素和羟丙基纤维素的包覆剂，分离剂脂肪酸，脂肪酸镁盐，滑石粉和二氧化硅，改性淀粉，富马酸铁，硫酸锌，染料氧化铁和氢氧化铁，椰子油，季戊四酰单谷氨酸碘酸钾，胆钙化固醇 请注意有关过敏原的说明。 过敏原 不含标签要求的致敏成分',
         price: '119'
-    })
+    }),
+
+    new Product({
+        category: 'nahrungsergaenzungsmittel',
+        group: '胆结石Gallensteine',
+        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/胆结石Gallensteine/42001.jpg',
+        title:'德国原版爱活胆通胶囊 Gallith Kapseln，100粒',
+        description:'服用方法：德国进口版胆通胶囊饭后服用，针对自身情况，一次1~2粒，一日3次。 服用期间要注意不要吃油腻的食物。专家表示：胆结石患者吃一些油腻的食物会刺激胆囊收缩引起的疼痛！由于脂肪类食物主要是靠胆汁来消化的，所以只要一下吃油腻的食物，就会反射性地引起胆囊收缩把胆汁挤到十二指肠，引起胆囊疼痛。 德国原产的爱活胆通胶囊可以长期吃，毕竟是纯植物提取药品，对身体影响不大！推荐为6个月一个疗程。',
+        price: '209'
+    }),
+
+    new Product({
+        category: 'nahrungsergaenzungsmittel',
+        group: '痛风,尿酸高Gicht,Harnsäure',
+        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/痛风,尿酸高Gicht,Harnsäure/43001.jpg',
+        title:'德国BULLRICH调整尿酸 痛风 尿酸高降尿酸 排酸排毒片450片',
+        description:'【用法用量】：每天3次，每次2片，随餐服用。  【试纸用法】建议连续3天，每天5次使用试纸测量患者的尿液，吃饭前和饭后1小时测试，用药盒底部的试纸浸入尿液的量杯中，拿出来会逐渐变色，对应颜色区分酸碱性。酸性就 +1片 碱性就 -1片  【关于尿酸试纸颜色】建议每天5次检查历时3天的尿PH值。（例如：饭前和饭后1小时）； 蓝色的范围（7.0-7.4）成酸性，以外的成碱性     【适用人群】：酸性体质、免疫力差、尿酸高、痛风、因生活不规律饮食结构不合理和烟酒过量所致身体不适的亚健康人群。  【产品介绍】：1.有效溶解尿酸结石、胱氨酸结石、作为胱氨酸结石和胱氨酸尿的维持**； 2.预防各种泌尿系统结石再发，特别是草酸钙结石； 3.各种代谢紊乱引起的代谢性疾病，如高尿酸所致的各种代谢性疾病，如痛风 4.防止新结石的形成。     痛风高尿酸人群应进行嘌呤低能量饮食，保持合理体重，戒酒，多饮水，每日饮水2000ml以上。避免暴食、酗酒、受凉受潮、过度疲劳和精神紧张，穿舒适鞋，防止关节损伤，慎用影响尿酸排泄的药物如某些利尿剂和小剂量阿司匹林等。防治伴发病如高血压、糖尿病和冠心病等。 ',
+        price: '149'
+    }),
+
+
+        new Product({
+        category: 'nahrungsergaenzungsmittel',
+        group: '风湿痛Rheumatischer Schmerz',
+        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/风湿痛Rheumatischer Schmerz/44001.jpg',
+        title:'德国本土品牌Kräuterhof 本草庄园 马膏 热凝胶 250ml大瓶装',
+        description:'使用方法：外用，取适量薄薄涂抹于身体相关部位，轻柔按摩即可。 使用方法外用，均匀涂抹于痛处，并按摩直至吸收效果更佳。注：请勿涂抹于伤口及触及眼睛，孕妇、严重过敏史、重症皮肤病患者禁用。     推荐针对风湿关节痛非常有效针对风湿关节痛非常有效 德亚超过300多个5星好评！！能够对有助于缓解动脉硬化，助麻痹的四肢恢复活力，促进血液循环；同时富含多种天然植物提取成分，能够有效用于跌打损伤，帮助肌肉恢复；并且有助于缓解关节炎痛、风湿痛、肌肉酸痛、颈椎痛、腱鞘炎       强烈推荐~~~适用于长期电脑工作者、引起的颈肩疼痛，中老年人颈肩腰腿疼痛，风湿性关节炎，走路膝盖疼痛，骨骼咯吱咯吱疼痛。具有强力消浮肿的作用，能够舒缓疲倦的肌肤，活络及帮助肌肤新陈代谢~~~在德国是冠军球队的必备良品。',
+        price: '79'
+    }),
+
+        new Product({
+        category: 'nahrungsergaenzungsmittel',
+        group: '鱼油Seefischöl',
+        imagePath: '/images/second-level-directory/nahrungsergaenzungsmittel/鱼油Seefischöl/45001.jpg',
+        title:'Doppelherz 双心 Omega-3 鱼油 1000毫克版本 80粒',
+        description:'用量: 每日一次，每次一粒，饭后大量温水送服。    推荐：预防动脉硬化、四肢冰冷，减少脂肪的形成，防止肥胖症产生、预防老年痴呆、通血管、调节血脂、降血压。适合12岁以上人群服用，尤其适用于患有高血压、高胆固醇、动脉硬化、心血管疾病患者。',
+        price: '99'
+    })    
 
         
 ];
