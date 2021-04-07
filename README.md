@@ -34,6 +34,41 @@ shopping cart
 + add shipping method 
 
 
+## Server migration:
+1. Backup database:
+
+´´´
+$ mongodump -h dbhost -d dbname -o dbdirectory
+´´´
+
+2. Copy filr to target server.
+
+3. Restore database.
+
+´´´
+$ mongorestore -h <hostname><:port> -d dbname <path to backup file>
+´´´
+
+4. Clone project from github.
+
+5. In shopping-cart project root directory, install necessary packages:
+
+´´´
+$ npm i
+$ npm install <other packages>
+´´´
+
+6. Check the mongodb setting (username, password in app.js), and wether the specific port (/bin/www) is open.
+
+7. Install pm2, use pm2 to run project.
+
+´´´
+$ pm2 start npm --name shopping-cart -- start
+´´´
+
+8 Set domain, point domain to new ipv4.
+
+
 ## [Test Link:](http://www.germanfamily.eu) j Mobile devices only.
 
 Sometimes it may not open during development.
