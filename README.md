@@ -69,8 +69,5 @@ $ pm2 start npm --name shopping-cart -- start
 8 Set domain, point domain to new ipv4.
 
 
-## [Test Link:](http://www.germanfamily.eu) j Mobile devices only.
-
-Sometimes it may not open during development.
-
+## [Test Link:](http://www.germanfamily.eu) Just support Mobile devices.
 
