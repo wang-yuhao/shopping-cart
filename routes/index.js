@@ -201,15 +201,13 @@ router.get('/search-add-to-cart/:id/:searchItem', function(req, res, next){
     });
 });
 
-
 router.get('/product/:id', function(req, res, next){
     var productId = req.params.id;
     Product.findById(productId, function(err, product){
         if(err){
             return res.redirect('/second-level/'+category);
         }
-        res.render('shop/product',{title: product.title, product: product});
-    });
+        res.render('shop/product',{title: product.title, _id:product._id, imagePath:product.imagePath, desc:product.description, price:product.price, product: JSON.stringify(product)}); });
 });
 
 module.exports = router;
